@@ -1,0 +1,33 @@
+<div class="row">
+  <app-header></app-header>
+</div>
+<div class="container">
+   <form (ngSubmit)="taskSubmit()" #addform="ngForm">
+      <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" value="{{taskId}}"   
+        name="id" 
+        class="form-control" id="id"
+         required >
+      </div>
+       
+
+      <div class="form-group">
+        <label for="name">Task</label>
+        <input type="text"  
+        name="title" value="{{taskTitle}}"
+        class="form-control" id="name"
+         required >
+      </div>
+          
+      <div class="form-group">
+  <label for="power">Status</label>
+  <select class="form-control"  id="status" 
+   name="status"
+   required>
+    <option  *ngFor="let s of status" [value]="s">{{s}}</option>
+  </select>
+</div>
+      <button type="submit" class="btn btn-default form-control" [disabled]="!addform.form.valid" >Edit Task</button>
+    </form>
+</div>
